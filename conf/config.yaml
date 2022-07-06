@@ -1,0 +1,7 @@
+files:
+    data: data.csv
+    log: log.txt
+params:
+    x: x
+    y: 2
+    
