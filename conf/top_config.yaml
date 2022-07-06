@@ -1,0 +1,4 @@
+defaults:
+  - _self_
+  - files: default
+  - params: default
