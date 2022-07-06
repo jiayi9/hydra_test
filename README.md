@@ -1,2 +1,1 @@
-# hydra_test
-hydra test
+Try to produce a type conflict in hydra
