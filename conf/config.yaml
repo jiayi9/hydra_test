@@ -1,7 +1,36 @@
-files:
-    data: data.csv
-    log: log.txt
-params:
-    x: x
-    y: 2
-    
+train_aug:
+  - trans_func_name: VerticalFlip
+    params:
+      p: 0.5
+  - trans_func_name: HorizontalFlip
+    params:
+      p: 0.5
+  - trans_func_name: ShiftScaleRotate
+    params:
+      rotate_limit: 10
+      border_mode: 0
+      p: 0.5
+  - trans_func_name: GaussianBlur
+    params:
+      blur_limit: 3
+      p: 0.35
+  - trans_func_name: RandomBrightness
+    params:
+      limit: 1
+      p: 0.35
+  - trans_func_name: Sharpen
+    params:
+      alpha: [0.2, 0.3]
+      p: 0.35
+  - trans_func_name: Resize
+    params:
+      height: 256
+      width: 256
+  - trans_func_name: Normalize
+    params:
+      mean: [0.485, 0.456, 0.406]
+      std: [0.229, 0.224, 0.225]
+  - trans_func_name: RandomCrop
+    params:
+      height: 256
+      width: 256
