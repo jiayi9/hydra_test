@@ -15,17 +15,24 @@ def main(cfg):
     transforms = []
 
     for aug_cfg in cfg['train_aug']:
-        print(aug_cfg)
-        print(aug_cfg.trans_func_name)
+        print('-------------------------------')
+        print('Function name: ',aug_cfg.trans_func_name)
+        print('Before OmegaConf.to_container')
+
+        print(aug_cfg.params)
+
         params = OmegaConf.to_container(aug_cfg.params,
                                         resolve=True)
+        print('After OmegaConf.to_container')
+                  
         print(params)
         transforms.append(
             getattr(A, aug_cfg.trans_func_name)(**params)
         )
 
     transforms.append(ToTensorV2())
-    
+    print('-------------------------------')
+    print('The list of all transformations:')
     print(transforms)
     
     """
