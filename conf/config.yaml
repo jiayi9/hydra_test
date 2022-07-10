@@ -14,9 +14,10 @@ train_aug:
     params:
       blur_limit: 3
       p: 0.35
-  - trans_func_name: RandomBrightness
+  - trans_func_name: RandomBrightnessContrast
     params:
-      limit: 1
+      brightness_limit: 0.2
+      contrast_limit: 0.2
       p: 0.35
   - trans_func_name: Sharpen
     params:
